@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.Entity;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -22,7 +23,11 @@ public class Reservation implements Serializable {
     private String lieuDestination;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date date;
-//    private Employe employe;
-//    private Employe validateur;
+    @ManyToOne
+    @JoinColumn(name="id_employe")
+    private Employe employe;
+    @ManyToOne
+    @JoinColumn(name="id_validateur")
+    private Employe validateur;
 
 }
