@@ -33,4 +33,17 @@ public class ReservationMetierImp implements ReservationMetier {
 
     }
 
+    @Override
+    public Reservation updateReservation(String id, Reservation reservation) {
+        Reservation reservationToUpdate = reservationRepository.findById(id).get();
+        reservationToUpdate.setLieuDepart(reservation.getLieuDepart());
+        reservationToUpdate.setLieuDestination(reservation.getLieuDestination());
+        reservationToUpdate.setDate(reservation.getDate());
+        reservationToUpdate.setEmploye(reservation.getEmploye());
+        reservationToUpdate.setValidateur(reservation.getValidateur());
+        return reservationRepository.save(reservationToUpdate);
+
+    }
+
+
 }

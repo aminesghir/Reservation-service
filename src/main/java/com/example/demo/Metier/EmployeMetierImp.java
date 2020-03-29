@@ -18,6 +18,11 @@ public class EmployeMetierImp implements EmployeMetier {
     }
 
     @Override
+    public Optional<Employe> findEmployeByNom(String nom) {
+        return employeRepository.findEmployeByNom(nom);
+    }
+
+    @Override
     public Employe saveEmploye(Employe employe) {
         return employeRepository.save(employe);
     }
@@ -31,5 +36,17 @@ public class EmployeMetierImp implements EmployeMetier {
     public void deleteEmploye(Employe employe) {
         employeRepository.delete(employe);
 
+    }
+
+    @Override
+    public Employe updateEmploye(String id, Employe employe) {
+        Employe employeToUpdate = employeRepository.findById(id).get();
+        employeToUpdate.setNom(employe.getNom());
+        employeToUpdate.setPrenom(employe.getPrenom());
+        employeToUpdate.setPhone(employe.getPhone());
+        employeToUpdate.setEmail(employe.getEmail());
+        employeToUpdate.setLogin(employe.getLogin());
+        employeToUpdate.setMotDePasse(employe.getMotDePasse());
+        return employeRepository.save(employeToUpdate);
     }
 }

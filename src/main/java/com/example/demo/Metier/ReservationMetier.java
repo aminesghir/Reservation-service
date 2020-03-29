@@ -10,4 +10,5 @@ public interface ReservationMetier {
     public Reservation saveReservation(Reservation reservation);
     public List<Reservation> findAllReservation();
     public void deleteReservation(Reservation reservation);
+    public Reservation updateReservation(String id, Reservation reservation);
 }
