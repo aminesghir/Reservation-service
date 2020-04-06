@@ -3,6 +3,8 @@ package com.example.demo.Metier;
 import com.example.demo.Entity.Reservation;
 import com.example.demo.Repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,8 +41,8 @@ public class ReservationMetierImp implements ReservationMetier {
         reservationToUpdate.setLieuDepart(reservation.getLieuDepart());
         reservationToUpdate.setLieuDestination(reservation.getLieuDestination());
         reservationToUpdate.setDate(reservation.getDate());
-        reservationToUpdate.setEmploye(reservation.getEmploye());
-        reservationToUpdate.setValidateur(reservation.getValidateur());
+        reservationToUpdate.setEmployes(reservation.getEmployes());
+        reservationToUpdate.setValidateurs(reservation.getValidateurs());
         return reservationRepository.save(reservationToUpdate);
 
     }

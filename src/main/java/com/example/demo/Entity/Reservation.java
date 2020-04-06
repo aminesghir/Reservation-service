@@ -21,10 +21,9 @@ public class Reservation implements Serializable {
     private String id;
     private String lieuDepart;
     private String lieuDestination;
-    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date date;
-    private List<Employe> employe;
-    private Employe validateur;
+    private List<Employe> employess;
+    private List<Employe> validateurs;
 
     public String getId() {
         return id;
@@ -58,19 +57,19 @@ public class Reservation implements Serializable {
         this.date = date;
     }
 
-    public List<Employe> getEmploye() {
-        return employe;
+    public List<Employe> getEmployes() {
+        return employess;
     }
 
-    public void setEmploye(List<Employe> employe) {
-        this.employe = employe;
+    public void setEmployes(List<Employe> employes) {
+        this.employess = employes;
     }
 
-    public Employe getValidateur() {
-        return validateur;
+    public List<Employe> getValidateurs() {
+        return validateurs;
     }
 
-    public void setValidateur(Employe validateur) {
-        this.validateur = validateur;
+    public void setValidateurs(List<Employe> validateurs) {
+        this.validateurs = validateurs;
     }
 }

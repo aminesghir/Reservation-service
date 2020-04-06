@@ -3,6 +3,8 @@ package com.example.demo.Metier;
 import com.example.demo.Entity.Employe;
 import com.example.demo.Repository.EmployeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,4 +51,6 @@ public class EmployeMetierImp implements EmployeMetier {
         employeToUpdate.setMotDePasse(employe.getMotDePasse());
         return employeRepository.save(employeToUpdate);
     }
+
+
 }
